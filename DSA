@@ -1,0 +1,68 @@
+//Enter code here
+function runProgram(input) {
+    input=input.trim().split("\n")
+    let line = 0;
+    let [N,M] = input[line].trim().split(" ").map(Number);
+    let arr = [];
+  
+    for(let i=1; i<=N; i++){
+        arr.push(input[i].trim().split(" ").map(Number))
+        line++;
+    }
+    line++;
+    //console.log(N,M,arr);
+    let [N2,M2] = input[line].trim().split(" ").map(Number);
+    line++;
+      let arr2 = [];
+    for(let j=1; j<=N2; j++){
+        arr2.push(input[line].trim().split(" ").map(Number));
+        line++
+    
+        
+    }
+    line++
+    //console.log(N2,M2,arr2)
+    MatrixCompetition(N,M,arr,N2,M2,arr2)
+ }
+ function  MatrixCompetition(N,M,arr,N2,M2,arr2){
+     let sum = 0;
+     let sum2 = 0
+     for(let i=0; i<N; i++){
+         for(let j=0; j<M; j++){
+             sum+=(arr[i][j]);
+         }
+     }
+    // console.log(sum);
+     for(let y=0; y<N2; y++){
+         for(let z=0; z<M2; z++){
+             sum2+=(arr2[y][z]);
+         }
+     }
+     //console.log(sum2);
+     if(sum>sum2){
+         console.log(sum);
+     }
+     else{
+         console.log(sum2);
+     }
+ }
+ if (process.env.USERNAME === "") {
+     runProgram(``);
+ } else {
+     process.stdin.resume();
+     process.stdin.setEncoding("ascii");
+     let read = "";
+     process.stdin.on("data", function (input) {
+         read += input;
+     });
+     process.stdin.on("end", function () {
+         read = read.replace(/\n$/, "");
+         read = read.replace(/\n$/, "");
+         runProgram(read);
+     });
+     process.on("SIGINT", function () {
+         read = read.replace(/\n$/, "");
+         runProgram(read);
+         process.exit(0);
+     });
+ }
