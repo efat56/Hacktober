@@ -1,0 +1,34 @@
+function spiralTraversal(N, M, arr){
+    bag="";
+    count=0;
+    r1=0;c1=0;r2=N-1;c2=M-1;
+    
+    while(count<N*M){
+    
+    for(var i=r1;i<=r2 && count<N*M; i++)
+    {
+        bag=bag+arr[i][c1]+" ";
+        count++;
+    }
+    c1++;
+    for(var i=c1;i<=c2 && count<N*M;i++)
+    {
+        bag=bag+arr[r2][i]+" ";
+        count++;
+    }
+    r2--;
+    for(var i=r2;i>=r1 && count<N*M ;i--)
+    {
+        bag=bag+arr[i][c2]+" ";
+        count++;
+    }
+    c2--;
+    for(var i=c2;i>=c1 && count<N*M;i-- )
+    {
+        bag=bag+arr[r1][i]+" ";
+        count++;
+    }
+    r1++;
+    }
+    console.log(bag);
+}
